@@ -34,7 +34,7 @@ export default function Gallery() {
         ({index + 1} of {ecgList.length})
       </h3>
 
-      <Graph client:only="react" />n
+      <Graph client:only="react" />
 
       <p>{ecg.description}</p>
       <button onClick={handlePreviousClick}>
