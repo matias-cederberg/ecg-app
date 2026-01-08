@@ -1,6 +1,6 @@
 export const ecgList = [{
   name: 'Graph 1',
-  description: 'Description',
+  description: 'Description 1',
   graphData: ''
 },
 {
