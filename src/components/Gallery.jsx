@@ -4,11 +4,15 @@ import Graph from './Graph.jsx';
 
 export default function Gallery() {
   const [index, setIndex] = useState(0);
-  const [showMore, setShowMore] = useState(false);
+  const [seed, setSeed] = useState(1);
+  const resetGraph = () => {
+    setSeed(Math.random());
+  };
   const hasNext = index < ecgList.length - 1;
   const hasPrevious = index > 0;
 
   function handleNextClick() {
+    resetGraph();
     if (hasNext) {
       setIndex(index + 1);
     } else {
@@ -17,6 +21,7 @@ export default function Gallery() {
   }
 
   function handlePreviousClick() {
+    resetGraph();
     if (hasPrevious) {
       setIndex(index - 1);
     } else {
@@ -34,7 +39,7 @@ export default function Gallery() {
         ({index + 1} of {ecgList.length})
       </h3>
 
-      <Graph client:only="react" />
+      <Graph points={ecg.points} key={seed} client:only="react" />
 
       <p>{ecg.description}</p>
       <button onClick={handlePreviousClick}>
