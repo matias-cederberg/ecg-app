@@ -7,12 +7,13 @@ export default function Graph({ points }) {
   const lineColor = '#7fe48c';
   const bgColor = '#202129'
 
-  let xBaseline; 
-  let yBaseline;
+  let strokeWeight;
 
-  let length;
-  let segmentLength;
-  let iterationLength;
+  let startPoint = {x: 0, y: 0};
+  let cursor = {x: 0, y: 0};
+
+  let graphLength;
+  let graphHeight;
 
   let animProgress = 0; // keep 0 for builds
   let speed = 0.004;
@@ -25,25 +26,20 @@ export default function Graph({ points }) {
   const Sketch = p5i => {
     p5i.setup = () => {
 
-      let canvasWidth = Math.min(p5i.windowWidth * 0.9, 960);
-      let canvasHeight = Math.min(p5i.windowWidth * 0.6, 512);
+      let canvasWidth = Math.min(p5i.windowWidth * 0.9, 1080);
+      let canvasHeight = Math.min(p5i.windowWidth * 0.6, 412);
 
-      repeats = p5i.windowWidth > 700 ? 6 : 4;
+      repeats = 8;
+      strokeWeight = p5i.windowWidth > 700 ? 4 : 3;
 
       p5i.createCanvas(canvasWidth, canvasHeight);
 
-      length = p5i.width * 1;
-
-      dataLength = points.length * repeats;
-
-      iterationLength = length / repeats;
-
-      segmentLength = length / (dataLength - repeats);
+      graphLength = (canvasHeight) / 2;
+      graphHeight = (canvasHeight) / 2;
 
       dividerWidth = p5i.width * dividerWidthRatio;
 
-      xBaseline = (p5i.width - length) * 0.5;
-      yBaseline = p5i.height * 0.5 + 16;
+      startPoint = {x: (canvasWidth / 2) - graphLength * 3.3, y: canvasHeight / 1.5};
 
       p5i.background(bgColor);
     };
@@ -54,21 +50,21 @@ export default function Graph({ points }) {
       for (let iteration = 0; iteration < repeats; iteration++)
       {
         p5i.noFill();
-        p5i.strokeWeight(4);
+        p5i.strokeWeight(strokeWeight);
         p5i.stroke(lineColor);
 
-        for (let i = 0; i < points.length - 1; i++) {
-          drawCurvedLine(p5i, i, iteration)
+        cursor.x = startPoint.x + iteration * graphLength;
+        cursor.y = startPoint.y;
+
+        for (let i = 0; i < points.length; i++) {
+          drawCurvedLine(p5i, i, cursor, iteration);
         };
-      }
+      };
 
       p5i.noStroke();
       p5i.fill(bgColor);
 
-      drawDivider(p5i, animProgress);
-
-      animProgress += speed;
-      if (animProgress > 1) animProgress = 0;
+      drawDivider(p5i);
     };
 
     p5i.windowResized = () => {
@@ -76,29 +72,41 @@ export default function Graph({ points }) {
     };
   };
 
-  const drawDivider = (p5i, animProgress) => {
+  const drawDivider = (p5i) => {
+    animProgress += speed;
+    if (animProgress > 1) animProgress = 0;
+
     const leftEdge = -dividerWidth;
     const dividerAnimWidth = p5i.width + dividerWidth * 2;
     p5i.rect(leftEdge + dividerAnimWidth * animProgress, 0, dividerWidth, p5i.height);
-  }
+  };
 
-  const drawCurvedLine = (p5i, i, iteration) => {
-    let x = xBaseline + segmentLength * i + iterationLength * iteration;
-    let y = yBaseline - p5i.height * points[i].elevation;
-
-    let xControl = x;
-    let yControl = y;
-    if (points[i].amplitude > 0)
-      {
-        xControl = xBaseline + ((segmentLength * i) + segmentLength * 0.5) + iterationLength * iteration;
-        yControl = yBaseline - p5i.height * points[i].amplitude;
-      };
-
-    let x2 = xBaseline + segmentLength * (i + 1) + iterationLength * iteration
-    let y2 = yBaseline - p5i.height * points[i + 1].elevation;
+  const drawCurvedLine = (p5i, i, cursor, iteration) => {
+    let x = cursor.x;
     
-    p5i.bezier(x, y, xControl, yControl, xControl, yControl, x2, y2);
-  }
+    let y = cursor.y;
+
+    let x2 = x + points[i].duration * graphLength;
+    let y2 = startPoint.y - points[i].elevation * graphHeight;
+
+    let controlPoint = {x: x, y: y}
+    if (points[i].amplitude > 0)
+    {
+      x, y -= .3;
+      x2, y2 -= .3;
+      controlPoint.x = x + (points[i].duration * graphLength) / 2;
+      controlPoint.y = startPoint.y - points[i].amplitude * graphHeight;
+    };
+
+    cursor.x = x2;
+    cursor.y = y2;
+    
+    p5i.bezier(x, y, controlPoint.x, controlPoint.y, controlPoint.x, controlPoint.y, x2, y2);
+
+    if (i == points.length - 1) {
+      p5i.line(x2, y2, startPoint.x + graphLength * (iteration + 1), y2);
+    }
+  };
 
   useEffect(() => {
     const newp5 = new p5(Sketch, processingRef.current);
