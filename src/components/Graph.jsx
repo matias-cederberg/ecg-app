@@ -4,6 +4,9 @@ import p5 from "p5";
 export default function Graph({ points }) {
   const processingRef = useRef();
 
+  const lineColor = '#7fe48c';
+  const bgColor = '#202129'
+
   let xBaseline; 
   let yBaseline;
 
@@ -12,16 +15,24 @@ export default function Graph({ points }) {
   let iterationLength;
 
   let animProgress = 0; // keep 0 for builds
-  let speed = 0.006;
+  let speed = 0.004;
+  const dividerWidthRatio = 0.1;
+  let dividerWidth;
 
-  let repeats = 3;
+  let repeats;
   let dataLength;
 
   const Sketch = p5i => {
     p5i.setup = () => {
-      p5i.createCanvas(512, 512);
 
-      length = p5i.width * 0.9;
+      let canvasWidth = Math.min(p5i.windowWidth * 0.9, 960);
+      let canvasHeight = Math.min(p5i.windowWidth * 0.6, 512);
+
+      repeats = p5i.windowWidth > 700 ? 6 : 4;
+
+      p5i.createCanvas(canvasWidth, canvasHeight);
+
+      length = p5i.width * 1;
 
       dataLength = points.length * repeats;
 
@@ -29,20 +40,22 @@ export default function Graph({ points }) {
 
       segmentLength = length / (dataLength - repeats);
 
+      dividerWidth = p5i.width * dividerWidthRatio;
+
       xBaseline = (p5i.width - length) * 0.5;
-      yBaseline = p5i.height * 0.5;
+      yBaseline = p5i.height * 0.5 + 16;
+
+      p5i.background(bgColor);
     };
 
     p5i.draw = () => {
-      p5i.background(230, 230, 255);
-
-
+      p5i.background(bgColor);
 
       for (let iteration = 0; iteration < repeats; iteration++)
       {
         p5i.noFill();
-        p5i.strokeWeight(5);
-        p5i.stroke(1);
+        p5i.strokeWeight(4);
+        p5i.stroke(lineColor);
 
         for (let i = 0; i < points.length - 1; i++) {
           drawCurvedLine(p5i, i, iteration)
@@ -50,13 +63,24 @@ export default function Graph({ points }) {
       }
 
       p5i.noStroke();
-      p5i.fill(230, 230, 255);
-      p5i.rect(0 + p5i.width * animProgress, 0, p5i.width, p5i.height);
+      p5i.fill(bgColor);
+
+      drawDivider(p5i, animProgress);
 
       animProgress += speed;
       if (animProgress > 1) animProgress = 0;
     };
+
+    p5i.windowResized = () => {
+      p5i.setup();
+    };
   };
+
+  const drawDivider = (p5i, animProgress) => {
+    const leftEdge = -dividerWidth;
+    const dividerAnimWidth = p5i.width + dividerWidth * 2;
+    p5i.rect(leftEdge + dividerAnimWidth * animProgress, 0, dividerWidth, p5i.height);
+  }
 
   const drawCurvedLine = (p5i, i, iteration) => {
     let x = xBaseline + segmentLength * i + iterationLength * iteration;

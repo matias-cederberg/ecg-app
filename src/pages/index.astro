@@ -1,5 +1,6 @@
 ---
 import Gallery from "../components/Gallery.jsx";
+import "../styles/index.css";
 ---
 
 <html lang="en">
@@ -12,6 +13,8 @@ import Gallery from "../components/Gallery.jsx";
 	</head>
 	<body>
 		<br />
-		<Gallery client:only="react" />
+		<div class="pageContainer">
+			<Gallery client:only="react" />
+		</div>
 	</body>
 </html>
