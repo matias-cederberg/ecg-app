@@ -19,7 +19,7 @@ export default function Graph({ data }) {
   let interval = setInterval(tick, 0);
   let deltaTime = 0;
   let animProgress = 0; // keep 0 for builds
-  let speed = 0.0003;
+  let speed = 0.3;
 
   const dividerWidthRatio = 0.1;
   let dividerWidth;
@@ -86,13 +86,13 @@ export default function Graph({ data }) {
 
   const drawDivider = (p5i) => {
     animProgress += speed * deltaTime;
-    if (animProgress > 1) animProgress = 0;
+    if (animProgress > p5i.width) animProgress = 0;
 
     const leftEdge = -dividerWidth;
     const dividerAnimWidth = p5i.width + dividerWidth * 2;
     
     p5i.rectMode(p5i.CORNER);
-    p5i.rect(leftEdge + dividerAnimWidth * animProgress, 0, dividerWidth, p5i.height);
+    p5i.rect(animProgress, 0, dividerWidth, p5i.height);
   };
 
   const drawCurvedLine = (p5i, i, cursor, iteration) => {
