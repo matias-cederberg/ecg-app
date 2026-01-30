@@ -5,9 +5,11 @@ import Graph from './Graph.jsx';
 export default function Gallery() {
   const [index, setIndex] = useState(0);
   const [seed, setSeed] = useState(1);
+  
   const resetGraph = () => {
     setSeed(Math.random());
   };
+
   const hasNext = index < ecgList.length - 1;
   const hasPrevious = index > 0;
 
@@ -32,14 +34,14 @@ export default function Gallery() {
   let ecg = ecgList[index];
   return (
     <>
-      <h2>
-        {ecg.name}
-      </h2>
       <h3>
-        ({index + 1} of {ecgList.length})
+        ({index + 1} / {ecgList.length})
       </h3>
+      <h1>
+        {ecg.name}
+      </h1>
 
-      <Graph points={ecg.points} key={seed} client:only="react" />
+      <Graph data={ecg} key={seed} client:only="react" />
 
       <p>{ecg.description}</p>
       <button onClick={handlePreviousClick}>
