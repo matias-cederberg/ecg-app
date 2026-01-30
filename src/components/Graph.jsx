@@ -15,11 +15,8 @@ export default function Graph({ data }) {
   let graphLength;
   let graphHeight;
 
-  let lastFrame = Date.now();
-  let interval = setInterval(tick, 0);
-  let deltaTime = 0;
   let animProgress = 0; // keep 0 for builds
-  let speed = 0.3;
+  let speed;
 
   const dividerWidthRatio = 0.1;
   let dividerWidth;
@@ -41,6 +38,7 @@ export default function Graph({ data }) {
       graphLength = canvasHeight / 2;
       graphHeight = canvasHeight / 2;
 
+      speed = 0.001 * graphLength;
       dividerWidth = p5i.width * dividerWidthRatio;
 
       startPoint = {x: (canvasWidth / 2) - graphLength * 3.35, y: canvasHeight / 1.5};
@@ -85,7 +83,7 @@ export default function Graph({ data }) {
   };
 
   const drawDivider = (p5i) => {
-    animProgress += speed * deltaTime;
+    animProgress += speed * p5i.deltaTime;
     if (animProgress > p5i.width) animProgress = 0;
 
     const leftEdge = -dividerWidth;
@@ -121,12 +119,6 @@ export default function Graph({ data }) {
       p5i.line(x2, y2, startPoint.x + graphLength * (iteration + 1), y2);
     }
   };
-
-  function tick() {
-    let now = Date.now();
-    deltaTime = now - lastFrame;
-    lastFrame = now;
-  }
 
   useEffect(() => {
     const newp5 = new p5(Sketch, processingRef.current);
