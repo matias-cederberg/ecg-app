@@ -39,6 +39,7 @@ export default function Graph({ data }) {
       graphLength = canvasHeight / 2;
       graphHeight = canvasHeight / 2;
 
+      p5i.frameRate(30);
       speed = 0.001 * graphLength;
       dividerWidth = p5i.width * dividerWidthRatio;
 
@@ -74,8 +75,8 @@ export default function Graph({ data }) {
       p5i.textSize(18);
       p5i.fill(lineColor);
       
-      speedDebug += speed * p5i.deltaTime;
-      let s = `HR: ${Math.floor(speedDebug)}`;
+      //speedDebug += speed * p5i.deltaTime;
+      let s = `HR: ${Math.floor(data.heartRate)}`;
       p5i.text(s, p5i.width / 2, p5i.height - 12, 200, 40);
     };
 
@@ -86,7 +87,7 @@ export default function Graph({ data }) {
 
   const drawDivider = (p5i) => {
     animProgress += speed * p5i.deltaTime;
-    if (animProgress > p5i.width) animProgress = 0;
+    if (animProgress > graphLength * 3) animProgress = 0;
 
     const leftEdge = -dividerWidth;
     const dividerAnimWidth = p5i.width + dividerWidth * 2;
