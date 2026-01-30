@@ -17,6 +17,7 @@ export default function Graph({ data }) {
 
   let animProgress = 0; // keep 0 for builds
   let speed;
+  let speedDebug = 0;
 
   const dividerWidthRatio = 0.1;
   let dividerWidth;
@@ -73,7 +74,8 @@ export default function Graph({ data }) {
       p5i.textSize(18);
       p5i.fill(lineColor);
       
-      let s = `HR: ${data.heartRate}`;
+      speedDebug += speed * p5i.deltaTime;
+      let s = `HR: ${Math.floor(speedDebug)}`;
       p5i.text(s, p5i.width / 2, p5i.height - 12, 200, 40);
     };
 
