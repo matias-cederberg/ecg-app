@@ -5,7 +5,7 @@ import Graph from './Graph.jsx';
 export default function Gallery() {
   const [index, setIndex] = useState(0);
   const [seed, setSeed] = useState(1);
-  
+
   const resetGraph = () => {
     setSeed(Math.random());
   };
@@ -45,10 +45,10 @@ export default function Gallery() {
 
       <p>{ecg.description}</p>
       <button onClick={handlePreviousClick}>
-        Previous
+        Edellinen
       </button>
       <button onClick={handleNextClick}>
-        Next
+        Seuraava
       </button>
     </>
   );

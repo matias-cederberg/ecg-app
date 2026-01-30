@@ -47,7 +47,7 @@ export default function Graph({ data }) {
       dividerEnd = graphLength * mult + (graphLength / 2);
 
       p5i.frameRate(30);
-      speed = 0.001 * graphLength;
+      speed = 0.001 * graphLength * (data.heartRate / 60);
       animProgress = dividerStart;
 
       dividerWidth = p5i.width * dividerWidthRatio;

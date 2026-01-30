@@ -2,7 +2,7 @@ export const ecgList = [
 {
   name: 'Sinusrytmi',
   description: '',
-  heartRate: 60,
+  heartRate: 76,
   points: [
     // P
     { elevation: 0.00, amplitude: 0.07, duration: 0.13 },
@@ -21,9 +21,9 @@ export const ecgList = [
   ]
 },
 {
-  name: '',
+  name: 'Sinusrytmi',
   description: '',
-  heartRate: 60,
+  heartRate: 76,
   points: [
     // P
     { elevation: 0.00, amplitude: 0.07, duration: 0.13 },
@@ -42,9 +42,9 @@ export const ecgList = [
   ]
 },
 {
-  name: '',
+  name: 'Sinusrytmi',
   description: '',
-  heartRate: 60,
+  heartRate: 76,
   points: [
     // P
     { elevation: 0.00, amplitude: 0.07, duration: 0.13 },
@@ -61,5 +61,5 @@ export const ecgList = [
     // T
     { elevation: 0.00, amplitude: 0.16, duration: 0.24 },
   ]
-}
+},
 ];
