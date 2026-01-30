@@ -21,6 +21,8 @@ export default function Graph({ data }) {
 
   const dividerWidthRatio = 0.1;
   let dividerWidth;
+  let dividerStart;
+  let dividerEnd;
 
   let repeats;
   let dataLength;
@@ -39,8 +41,15 @@ export default function Graph({ data }) {
       graphLength = canvasHeight / 2;
       graphHeight = canvasHeight / 2;
 
+      dividerStart = -graphLength + (graphLength / 2);
+      let mult = p5i.windowWidth > 700 ? 5 : 3;
+
+      dividerEnd = graphLength * mult + (graphLength / 2);
+
       p5i.frameRate(30);
       speed = 0.001 * graphLength;
+      animProgress = dividerStart;
+
       dividerWidth = p5i.width * dividerWidthRatio;
 
       startPoint = {x: (canvasWidth / 2) - graphLength * 3.35, y: canvasHeight / 1.5};
@@ -87,7 +96,7 @@ export default function Graph({ data }) {
 
   const drawDivider = (p5i) => {
     animProgress += speed * p5i.deltaTime;
-    if (animProgress > graphLength * 3) animProgress = 0;
+    if (animProgress > dividerEnd) animProgress = dividerStart;
 
     const leftEdge = -dividerWidth;
     const dividerAnimWidth = p5i.width + dividerWidth * 2;
