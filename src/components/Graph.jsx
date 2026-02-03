@@ -12,10 +12,12 @@ export default function Graph({ data }) {
   let startPoint = {};
   let cursor = {};
   let graph = {};
+  let canvas;
 
   // scrolling
   let prevMouseX = 0;
-  let scrollDelta = 0;
+  let scrollAmount = 0;
+  let isScrollEnabled = false;
 
   // divider animation
   let animProgress = 0; // keep 0 for builds
@@ -39,7 +41,7 @@ export default function Graph({ data }) {
       repeats = 8;
       strokeWeight = p5i.windowWidth > 700 ? 4 : 3;
 
-      p5i.createCanvas(canvasWidth, canvasHeight);
+      canvas = p5i.createCanvas(canvasWidth, canvasHeight);
 
       graph.w = canvasHeight / 1.5;
       graph.h = canvasHeight / 2;
@@ -52,11 +54,20 @@ export default function Graph({ data }) {
         y: canvasHeight / 1.5
       };
 
+      if (Math.abs(scrollAmount) > graph.w) {
+        scrollAmount -= graph.w * Math.sign(scrollAmount);
+      };
+
+      startPoint.x += scrollAmount;
+
+      canvas.mouseOver(() => isScrollEnabled = true);
+      canvas.mouseOut(() => isScrollEnabled = false);
+
       // divider animation
-      dividerStart = -graph.w + (graph.w / 2);
+      dividerStart = -graph.w;
       let mult = p5i.windowWidth > 700 ? 5 : 3;
 
-      dividerEnd = graph.w * mult + (graph.w / 2);
+      dividerEnd = graph.w * mult;
 
       p5i.frameRate(60);
       speed = 0.001 * graph.w * (data.heartRate / 60);
@@ -72,8 +83,8 @@ export default function Graph({ data }) {
     p5i.draw = () => {
       p5i.background(bgColor);
 
-      startPoint.x += scrollDelta;
-      scrollDelta = 0;
+      p5i.cursor('grab');
+      if (p5i.mouseIsPressed) p5i.cursor('grabbing');
 
       for (let iteration = 0; iteration < repeats; iteration++)
       {
@@ -102,12 +113,18 @@ export default function Graph({ data }) {
 
 
     p5i.mouseDragged = () => {
-      scrollDelta = p5i.mouseX - prevMouseX;
-      prevMouseX = p5i.mouseX;
+      if (!isScrollEnabled) return false;
+
+      scrollAmount += p5i.mouseX - prevMouseX;
+      prevMouseX += p5i.mouseX - prevMouseX;
+      
+      p5i.setup();
+
+      // prevent default behavior
+      return false;
     }
 
     p5i.mousePressed = () => {
-      scrollDelta = 0;
       prevMouseX = p5i.mouseX;
     }
 

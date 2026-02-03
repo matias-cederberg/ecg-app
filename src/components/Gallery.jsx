@@ -41,7 +41,9 @@ export default function Gallery() {
         {ecg.name}
       </h1>
 
-      <Graph data={ecg} key={seed} client:only="react" />
+      <div class="graphDiv">
+        <Graph data={ecg} key={seed} client:only="react" />
+      </div>
 
       <p>{ecg.description}</p>
       <button onClick={handlePreviousClick}>

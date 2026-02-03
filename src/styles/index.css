@@ -5,6 +5,10 @@ canvas {
   filter: drop-shadow(0px 4px 4px gray);
 }
 
+.graphDiv {
+  cursor: grabbing;
+}
+
 .pageContainer {
   display: flex;
   align-items: center;
