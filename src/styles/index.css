@@ -3,10 +3,12 @@ canvas {
   width: 10%;
   height: auto;
   filter: drop-shadow(0px 4px 4px gray);
+  touch-action: none;
 }
 
 .graphDiv {
   cursor: grabbing;
+  touch-action: none;
 }
 
 .pageContainer {
