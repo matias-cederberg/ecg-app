@@ -124,6 +124,18 @@ export default function Graph({ data }) {
       return false;
     }
 
+    p5i.touchMoved = () => {
+      if (!isScrollEnabled) return false;
+
+      scrollAmount += p5i.mouseX - prevMouseX;
+      prevMouseX += p5i.mouseX - prevMouseX;
+      
+      p5i.setup();
+
+      // prevent default behavior
+      return false;
+    }
+
     p5i.mousePressed = () => {
       prevMouseX = p5i.mouseX;
     }
