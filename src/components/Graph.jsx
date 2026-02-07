@@ -50,7 +50,7 @@ export default function Graph({ data }) {
       graph.w *= heartRateRatio;
 
       startPoint = {
-        x: (canvasWidth / 2) - graph.w * 3.35,
+        x: (canvasWidth / 2 + scrollAmount) - graph.w * 3.35,
         y: canvasHeight / 1.5
       };
 
@@ -58,7 +58,7 @@ export default function Graph({ data }) {
         scrollAmount -= graph.w * Math.sign(scrollAmount);
       };
 
-      startPoint.x += scrollAmount;
+      //startPoint.x += scrollAmount;
 
       canvas.mouseOver(() => isScrollEnabled = true);
       canvas.mouseOut(() => isScrollEnabled = false);
