@@ -1,5 +1,4 @@
 ---
-import { Button } from "@mui/material";
 import Gallery from "../components/Gallery.jsx";
 import "../styles/index.css";
 ---
@@ -15,7 +14,7 @@ import "../styles/index.css";
 	<body>
 		<br />
 		<div class="pageContainer">
-			<a href="ecg-app/galleryPage/" class="button">Kirjasto</a>
+			<Gallery client:only="react" />
 		</div>
 	</body>
 </html>

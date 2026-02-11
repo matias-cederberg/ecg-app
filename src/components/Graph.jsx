@@ -35,7 +35,7 @@ export default function Graph({ data }) {
     p5i.setup = () => {
 
       // canvas scaling calculations for different window sizes
-      let canvasWidth = Math.min(p5i.windowWidth * 0.95, 1080);
+      let canvasWidth = Math.min(p5i.windowWidth * 0.95, 1580);
       let canvasHeight = Math.min(p5i.windowWidth * 0.6, 412);
 
       repeats = 8;
