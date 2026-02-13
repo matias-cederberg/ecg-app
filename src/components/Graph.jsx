@@ -34,11 +34,13 @@ export default function Graph({ data }) {
   const Sketch = p5i => {
     p5i.setup = () => {
 
+      //if (data.points.length == 0) return;
+
       // canvas scaling calculations for different window sizes
-      let canvasWidth = Math.min(p5i.windowWidth * 0.95, 1580);
+      let canvasWidth = Math.min(p5i.windowWidth * 0.95, 1280);
       let canvasHeight = Math.min(p5i.windowWidth * 0.6, 412);
 
-      repeats = 8;
+      repeats = 16;
       strokeWeight = p5i.windowWidth > 700 ? 4 : 3;
 
       canvas = p5i.createCanvas(canvasWidth, canvasHeight);
@@ -50,7 +52,7 @@ export default function Graph({ data }) {
       graph.w *= heartRateRatio;
 
       startPoint = {
-        x: (canvasWidth / 2 + scrollAmount) - graph.w * 3.35,
+        x: (canvasWidth / 2 + scrollAmount) - graph.w * 5.35,
         y: canvasHeight / 1.5
       };
 
@@ -65,7 +67,7 @@ export default function Graph({ data }) {
 
       // divider animation
       dividerStart = -graph.w;
-      let mult = p5i.windowWidth > 700 ? 5 : 3;
+      let mult = Math.ceil(p5i.width / graph.w);
 
       dividerEnd = graph.w * mult;
 

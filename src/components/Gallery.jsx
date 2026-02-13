@@ -3,57 +3,122 @@ import { ecgList } from './data.js';
 import Graph from './Graph.jsx';
 
 export default function Gallery() {
-  const [index, setIndex] = useState(0);
+  const [pageIndex, setPageIndex] = useState(0);
+  const [ecgIndex, setEcgIndex] = useState(0);
   const [seed, setSeed] = useState(1);
 
   const resetGraph = () => {
     setSeed(Math.random());
   };
 
-  const hasNext = index < ecgList.length - 1;
-  const hasPrevious = index > 0;
+  const hasNext = ecgIndex < ecgList.length - 1;
+  const hasPrevious = ecgIndex > 0;
 
-  function handleNextClick() {
+  function handleNextEcgClick() {
     resetGraph();
-    if (hasNext) {
-      setIndex(index + 1);
-    } else {
-      setIndex(0);
-    }
+
+    let target;
+    target = hasNext ? ecgIndex + 1 : 0;
+    setEcgIndex(target);
   }
 
-  function handlePreviousClick() {
+  function handlePreviousEcgClick() {
     resetGraph();
-    if (hasPrevious) {
-      setIndex(index - 1);
-    } else {
-      setIndex(ecgList.length - 1);
-    }
+
+    let target;
+    target = hasPrevious ? ecgIndex - 1 : ecgList.length - 1;
+    setEcgIndex(target);
   }
 
-  let ecg = ecgList[index];
-  return (
-    <>
-      <h3>
-        ({index + 1} / {ecgList.length})
-      </h3>
-      <h1>
-        {ecg.name}
-      </h1>
+  function handleNextPageClick() {
+    resetGraph();
 
-      <div class="graphDiv">
-        <Graph data={ecg} key={seed} client:only="react" />
-      </div>
+    setPageIndex(1);
+  }
 
-      <p>{ecg.description}</p>
-      <button onClick={handlePreviousClick}>
-        Edellinen
-      </button>
-      <button onClick={handleNextClick}>
-        Seuraava
-      </button>
-    </>
-  );
+  function handlePreviousPageClick() {
+    resetGraph();
+
+    setPageIndex(0);
+  }
+
+  let ecg = ecgList[ecgIndex];
+
+  if ("points" in ecg.pages[pageIndex]) {
+    return (
+      <>
+        <h1>
+          {ecg.name}
+        </h1>
+
+        <div class="graphDiv">
+          <Graph data={ecg.pages[pageIndex]} key={seed} client:only="react" />
+        </div>
+
+        <p/>
+
+        <div class="horizontalContainer">
+          <button onClick={handlePreviousPageClick} class="button">
+            <span class="material-symbols-rounded">article</span>
+          </button>
+          <button onClick={handleNextPageClick} class="button">
+            <span class="material-symbols-rounded">bid_landscape</span>
+          </button>
+        </div>
+
+        <p/>
+
+        <div class="horizontalContainer">
+          <button onClick={handlePreviousEcgClick} class="button">
+            <span class="material-symbols-rounded">arrow_left_alt</span>
+          </button>
+          <h3>
+            Rytmi {ecgIndex + 1} / {ecgList.length}
+          </h3>
+          <button onClick={handleNextEcgClick} class="button">
+            <span class="material-symbols-rounded">arrow_right_alt</span>
+          </button>
+        </div>
+      </>
+    );
+  } 
+  else {
+    return (
+      <>
+        <h1>
+          {ecg.name}
+        </h1>
+
+        <p>{ecg.pages[pageIndex].description}</p>
+
+        <p/>
+
+        <div class="horizontalContainer">
+          <button onClick={handlePreviousPageClick} class="button">
+            <span class="material-symbols-rounded">article</span>
+          </button>
+          <button onClick={handleNextPageClick} class="button">
+            <span class="material-symbols-rounded">bid_landscape</span>
+          </button>
+        </div>
+
+        <p/>
+
+        <div class="horizontalContainer">
+          <button onClick={handlePreviousEcgClick} class="button">
+            <span class="material-symbols-rounded">arrow_left_alt</span>
+          </button>
+          <h3>
+            Rytmi {ecgIndex + 1} / {ecgList.length}
+          </h3>
+          <button onClick={handleNextEcgClick} class="button">
+            <span class="material-symbols-rounded">arrow_right_alt</span>
+          </button>
+        </div>
+      </>
+    );
+  }
+  
 }
 
 
