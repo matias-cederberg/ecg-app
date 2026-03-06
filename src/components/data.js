@@ -26,7 +26,7 @@ export const ecgList = [
 {
   name: 'Sinusbradykardia',
   pages: [
-    { description: '' },
+    { description: 'Sinusbradykardia on sinusrytmi, jossa syketaajuus on alle 60 lyöntiä minuutissa. Eteisaktivaatio tapahtuu kuten normaalissa sinusrytmissä. P-aalto on normaalin muotoinen, edeltää jokaista QRS-kompleksia ja PQ-aika on vähintään 120 ms. Sinusbradykardia on tavallista unen aikana sekä henkilöillä, joilla vagaalinen tonus on suuri, kuten urheilijoilla ja terveillä nuorilla aikuisilla.' },
     { heartRate: 42,
       points: [
         // P
@@ -50,7 +50,7 @@ export const ecgList = [
 {
   name: 'Sinustakykardia',
   pages: [
-    { description: '', },
+    { description: 'Sinustakykardia on sinusrytmi, jossa syketiheys on yli 100 kertaa minuutissa. Eteisaktivaatio tapahtuu kuten sinusrytmissä ja P-aallot ovat normaalit, myös PP-välit ovat yleensä säännölliset. P-aaltoja seuraa QRS-kompleksi ja P-aaltojen morfologia on normaali.P-aallon korkeus voi myös kasvaa sekä PR-väli voi lyhentyä  syketiheyden kasvaessa. ', },
     { heartRate: 60,
     points: [] }
   ]
@@ -58,7 +58,7 @@ export const ecgList = [
 {
   name: 'Sinusrytmi + SVES',
   pages: [
-    { description: '', },
+    { description: '[Ei kuvausta]', },
     { heartRate: 60,
     points: [] }
   ]
@@ -66,7 +66,7 @@ export const ecgList = [
 {
   name: 'Sinusrytmi + VES',
   pages: [
-    { description: '', },
+    { description: '[Ei kuvausta]', },
     { heartRate: 60,
     points: [] }
   ]
@@ -74,7 +74,7 @@ export const ecgList = [
 {
   name: 'Kupletti',
   pages: [
-    { description: '', },
+    { description: '[Ei kuvausta]', },
     { heartRate: 60,
     points: [] }
   ]
@@ -82,7 +82,7 @@ export const ecgList = [
 {
   name: 'Tripletti',
   pages: [
-    { description: '', },
+    { description: '[Ei kuvausta]', },
     { heartRate: 60,
     points: [] }
   ]
@@ -90,7 +90,7 @@ export const ecgList = [
 {
   name: 'R-On-T',
   pages: [
-    { description: '', },
+    { description: '[Ei kuvausta]', },
     { heartRate: 60,
     points: [] }
   ]
@@ -98,7 +98,7 @@ export const ecgList = [
 {
   name: 'Bigemenia',
   pages: [
-    { description: '', },
+    { description: '[Ei kuvausta]', },
     { heartRate: 60,
     points: [] }
   ]
@@ -106,7 +106,7 @@ export const ecgList = [
 {
   name: 'Trigemenia',
   pages: [
-    { description: '', },
+    { description: '[Ei kuvausta]', },
     { heartRate: 60,
     points: [] }
   ]
@@ -114,7 +114,7 @@ export const ecgList = [
 {
   name: 'Flimmeri',
   pages: [
-    { description: '', },
+    { description: '[Ei kuvausta]', },
     { heartRate: 60,
     points: [] }
   ]
@@ -122,7 +122,7 @@ export const ecgList = [
 {
   name: 'Flutteri',
   pages: [
-    { description: '', },
+    { description: '[Ei kuvausta]', },
     { heartRate: 60,
     points: [] }
   ]
@@ -130,7 +130,7 @@ export const ecgList = [
 {
   name: 'SVT',
   pages: [
-    { description: '', },
+    { description: '[Ei kuvausta]', },
     { heartRate: 60,
     points: [] }
   ]
@@ -138,7 +138,7 @@ export const ecgList = [
 {
   name: 'VT',
   pages: [
-    { description: '', },
+    { description: '[Ei kuvausta]', },
     { heartRate: 60,
     points: [] }
   ]
@@ -146,7 +146,7 @@ export const ecgList = [
 {
   name: 'VF',
   pages: [
-    { description: '', },
+    { description: '[Ei kuvausta]', },
     { heartRate: 60,
     points: [] }
   ]
@@ -154,7 +154,7 @@ export const ecgList = [
 {
   name: 'TDP',
   pages: [
-    { description: '', },
+    { description: '[Ei kuvausta]', },
     { heartRate: 60,
     points: [] }
   ]
@@ -162,7 +162,7 @@ export const ecgList = [
 {
   name: 'ASY',
   pages: [
-    { description: '', },
+    { description: '[Ei kuvausta]', },
     { heartRate: 60,
     points: [] }
   ]
@@ -170,7 +170,7 @@ export const ecgList = [
 {
   name: 'Agonaalinen rytmi',
   pages: [
-    { description: '', },
+    { description: '[Ei kuvausta]', },
     { heartRate: 60,
     points: [] }
   ]
@@ -178,7 +178,7 @@ export const ecgList = [
 {
   name: 'PEA',
   pages: [
-    { description: '', },
+    { description: '[Ei kuvausta]', },
     { heartRate: 60,
     points: [] }
   ]
@@ -186,7 +186,7 @@ export const ecgList = [
 {
   name: 'Junktionaalinen rytmi',
   pages: [
-    { description: '', },
+    { description: '[Ei kuvausta]', },
     { heartRate: 60,
     points: [] }
   ]
@@ -194,7 +194,7 @@ export const ecgList = [
 {
   name: 'Eteistahdistus',
   pages: [
-    { description: '', },
+    { description: '[Ei kuvausta]', },
     { heartRate: 60,
     points: [] }
   ]
@@ -202,7 +202,7 @@ export const ecgList = [
 {
   name: 'Kammiotahdistus',
   pages: [
-    { description: '', },
+    { description: '[Ei kuvausta]', },
     { heartRate: 60,
     points: [] }
   ]
@@ -210,7 +210,7 @@ export const ecgList = [
 {
   name: 'Eteis-kammiotahdistus',
   pages: [
-    { description: '', },
+    { description: '[Ei kuvausta]', },
     { heartRate: 60,
     points: [] }
   ]
@@ -218,7 +218,7 @@ export const ecgList = [
 {
   name: 'I asteen AV-katkos',
   pages: [
-    { description: '', },
+    { description: '[Ei kuvausta]', },
     { heartRate: 60,
     points: [] }
   ]
@@ -226,7 +226,7 @@ export const ecgList = [
 {
   name: 'II asteen AV-katkos Mobitz 1',
   pages: [
-    { description: '', },
+    { description: '[Ei kuvausta]', },
     { heartRate: 60,
     points: [] }
   ]
@@ -234,7 +234,7 @@ export const ecgList = [
 {
   name: 'II asteen AV-katkos Mobitz 2',
   pages: [
-    { description: '', },
+    { description: '[Ei kuvausta]', },
     { heartRate: 60,
     points: [] }
   ]
@@ -242,7 +242,7 @@ export const ecgList = [
 {
   name: 'III asteen AV-katkos',
   pages: [
-    { description: '', },
+    { description: '[Ei kuvausta]', },
     { heartRate: 60,
     points: [] }
   ]
@@ -250,7 +250,7 @@ export const ecgList = [
 {
   name: 'RBBB',
   pages: [
-    { description: '', },
+    { description: '[Ei kuvausta]', },
     { heartRate: 60,
     points: [] }
   ]
@@ -258,7 +258,7 @@ export const ecgList = [
 {
   name: 'LBBB',
   pages: [
-    { description: '', },
+    { description: '[Ei kuvausta]', },
     { heartRate: 60,
     points: [] }
   ]
@@ -266,7 +266,7 @@ export const ecgList = [
 {
   name: 'Sinus + ST-tason nousu',
   pages: [
-    { description: '', },
+    { description: '[Ei kuvausta]', },
     { heartRate: 60,
     points: [] }
   ]
@@ -274,7 +274,7 @@ export const ecgList = [
 {
   name: 'Sinus + ST-tason lasku',
   pages: [
-    { description: '', },
+    { description: '[Ei kuvausta]', },
     { heartRate: 60,
     points: [] }
   ]
@@ -282,7 +282,7 @@ export const ecgList = [
 {
   name: 'T-inversio',
   pages: [
-    { description: '', },
+    { description: '[Ei kuvausta]', },
     { heartRate: 60,
     points: [] }
   ]

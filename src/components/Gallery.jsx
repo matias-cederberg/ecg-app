@@ -20,6 +20,7 @@ export default function Gallery() {
     let target;
     target = hasNext ? ecgIndex + 1 : 0;
     setEcgIndex(target);
+    setPageIndex(0);
   }
 
   function handlePreviousEcgClick() {
@@ -28,12 +29,20 @@ export default function Gallery() {
     let target;
     target = hasPrevious ? ecgIndex - 1 : ecgList.length - 1;
     setEcgIndex(target);
+    setPageIndex(0);
   }
 
   function handleNextPageClick() {
     resetGraph();
 
-    setPageIndex(1);
+    if (pageIndex == 0) {
+      setPageIndex(1);
+    }
+      else
+    {
+      handleNextEcgClick();
+    }
+
   }
 
   function handlePreviousPageClick() {
@@ -47,74 +56,74 @@ export default function Gallery() {
   if ("points" in ecg.pages[pageIndex]) {
     return (
       <>
-        <h1>
-          {ecg.name}
-        </h1>
+        <div class="galleryDiv">
+          <h1>
+            {ecg.name}
+          </h1>
 
-        <div class="graphDiv">
-          <Graph data={ecg.pages[pageIndex]} key={seed} client:only="react" />
+          <div class="graphDiv">
+            <Graph data={ecg.pages[pageIndex]} key={seed} client:only="react" />
+          </div>
+
+          <p/>
+
+          <div class="horizontalContainer">
+            <button onClick={handleNextPageClick} class="button">
+              <b>Seuraava</b> <span class="material-symbols-rounded">chevron_forward</span>
+            </button>
+          </div>
+
+          <p/>
         </div>
-
-        <p/>
-
-        <div class="horizontalContainer">
-          <button onClick={handlePreviousPageClick} class="button">
-            <span class="material-symbols-rounded">article</span>
-          </button>
-          <button onClick={handleNextPageClick} class="button">
-            <span class="material-symbols-rounded">bid_landscape</span>
-          </button>
-        </div>
-
-        <p/>
 
         <div class="horizontalContainer">
           <button onClick={handlePreviousEcgClick} class="button">
-            <span class="material-symbols-rounded">arrow_left_alt</span>
+            <span class="material-symbols-rounded">chevron_backward</span>
           </button>
           <h3>
-            Rytmi {ecgIndex + 1} / {ecgList.length}
+            {ecgIndex + 1} / {ecgList.length}
           </h3>
           <button onClick={handleNextEcgClick} class="button">
-            <span class="material-symbols-rounded">arrow_right_alt</span>
+            <span class="material-symbols-rounded">chevron_forward</span>
           </button>
         </div>
+        {ecg.name}
       </>
     );
   } 
   else {
     return (
       <>
-        <h1>
-          {ecg.name}
-        </h1>
+        <div class="galleryDiv">
+          <h1>
+            {ecg.name}
+          </h1>
 
-        <p>{ecg.pages[pageIndex].description}</p>
+          <p>{ecg.pages[pageIndex].description}</p>
 
-        <p/>
+          <p/>
 
-        <div class="horizontalContainer">
-          <button onClick={handlePreviousPageClick} class="button">
-            <span class="material-symbols-rounded">article</span>
-          </button>
-          <button onClick={handleNextPageClick} class="button">
-            <span class="material-symbols-rounded">bid_landscape</span>
-          </button>
+          <div class="horizontalContainer">
+            <button onClick={handleNextPageClick} class="button">
+              <b>Seuraava</b> <span class="material-symbols-rounded">chevron_forward</span>
+            </button>
+          </div>
+
+          <p/>
         </div>
-
-        <p/>
 
         <div class="horizontalContainer">
           <button onClick={handlePreviousEcgClick} class="button">
-            <span class="material-symbols-rounded">arrow_left_alt</span>
+            <span class="material-symbols-rounded">chevron_backward</span>
           </button>
           <h3>
-            Rytmi {ecgIndex + 1} / {ecgList.length}
+            {ecgIndex + 1} / {ecgList.length}
           </h3>
           <button onClick={handleNextEcgClick} class="button">
-            <span class="material-symbols-rounded">arrow_right_alt</span>
+            <span class="material-symbols-rounded">chevron_forward</span>
           </button>
         </div>
+        {ecg.name}
       </>
     );
   }
