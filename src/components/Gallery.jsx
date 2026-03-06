@@ -81,13 +81,13 @@ export default function Gallery() {
             <span class="material-symbols-rounded">chevron_backward</span>
           </button>
           <h3>
-            {ecg.name}
+            {ecgIndex + 1} / {ecgList.length}
           </h3>
           <button onClick={handleNextEcgClick} class="button">
             <span class="material-symbols-rounded">chevron_forward</span>
           </button>
         </div>
-        {ecgIndex + 1} / {ecgList.length}
+        {ecg.name}
       </>
     );
   } 
@@ -117,13 +117,13 @@ export default function Gallery() {
             <span class="material-symbols-rounded">chevron_backward</span>
           </button>
           <h3>
-            {ecg.name}
+            {ecgIndex + 1} / {ecgList.length}
           </h3>
           <button onClick={handleNextEcgClick} class="button">
             <span class="material-symbols-rounded">chevron_forward</span>
           </button>
         </div>
-        {ecgIndex + 1} / {ecgList.length}
+        {ecg.name}
       </>
     );
   }
