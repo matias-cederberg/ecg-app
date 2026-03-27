@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { ecgList } from './data.js';
-import Graph from './Graph.jsx';
+import GalleryItem from './GalleryItem.jsx';
 
 export default function Gallery() {
   const [pageIndex, setPageIndex] = useState(0);
@@ -38,11 +38,10 @@ export default function Gallery() {
     if (pageIndex == 0) {
       setPageIndex(1);
     }
-      else
+    else
     {
       handleNextEcgClick();
     }
-
   }
 
   function handlePreviousPageClick() {
@@ -53,81 +52,40 @@ export default function Gallery() {
 
   let ecg = ecgList[ecgIndex];
 
-  if ("points" in ecg.pages[pageIndex]) {
-    return (
-      <>
-        <div class="galleryDiv">
-          <h1>
-            {ecg.name}
-          </h1>
+  return (
+    <>
+      <div class="galleryDiv">
+        <h1>
+          {ecg.name}
+        </h1>
 
-          <div class="graphDiv">
-            <Graph data={ecg.pages[pageIndex]} key={seed} client:only="react" />
-          </div>
+        <GalleryItem data={ecg.pages[pageIndex]} graphSeed={seed} client:only="react" />
 
-          <p/>
-
-          <div class="horizontalContainer">
-            <button onClick={handleNextPageClick} class="button">
-              <b>Seuraava</b> <span class="material-symbols-rounded">chevron_forward</span>
-            </button>
-          </div>
-
-          <p/>
-        </div>
+        <p/>
 
         <div class="horizontalContainer">
-          <button onClick={handlePreviousEcgClick} class="button">
-            <span class="material-symbols-rounded">chevron_backward</span>
-          </button>
-          <h3>
-            {ecgIndex + 1} / {ecgList.length}
-          </h3>
-          <button onClick={handleNextEcgClick} class="button">
-            <span class="material-symbols-rounded">chevron_forward</span>
+          <button onClick={handleNextPageClick} class="button">
+            <b>Seuraava</b> <span class="material-symbols-rounded">chevron_forward</span>
           </button>
         </div>
-        {ecg.name}
-      </>
-    );
-  } 
-  else {
-    return (
-      <>
-        <div class="galleryDiv">
-          <h1>
-            {ecg.name}
-          </h1>
 
-          <p>{ecg.pages[pageIndex].description}</p>
+        <p/>
+      </div>
 
-          <p/>
-
-          <div class="horizontalContainer">
-            <button onClick={handleNextPageClick} class="button">
-              <b>Seuraava</b> <span class="material-symbols-rounded">chevron_forward</span>
-            </button>
-          </div>
-
-          <p/>
-        </div>
-
-        <div class="horizontalContainer">
-          <button onClick={handlePreviousEcgClick} class="button">
-            <span class="material-symbols-rounded">chevron_backward</span>
-          </button>
-          <h3>
-            {ecgIndex + 1} / {ecgList.length}
-          </h3>
-          <button onClick={handleNextEcgClick} class="button">
-            <span class="material-symbols-rounded">chevron_forward</span>
-          </button>
-        </div>
-        {ecg.name}
-      </>
-    );
-  }
-  
+      <div class="horizontalContainer">
+        <button onClick={handlePreviousEcgClick} class="button">
+          <span class="material-symbols-rounded">chevron_backward</span>
+        </button>
+        <h3>
+          {ecgIndex + 1} / {ecgList.length}
+        </h3>
+        <button onClick={handleNextEcgClick} class="button">
+          <span class="material-symbols-rounded">chevron_forward</span>
+        </button>
+      </div>
+      {ecg.name}
+    </>
+  );
 }
 
 
