@@ -67,13 +67,13 @@ export default function ImageGraph({ data }) {
       graph.w *= heartRateRatio;
 
       startPoint = {
-        x: (canvasWidth / 2 + scrollAmount) - graph.w * 5.35,
+        x: (scrollAmount),
         y: canvasHeight / 1.5
       };
 
-      if (Math.abs(scrollAmount) > graph.w) {
-        scrollAmount -= graph.w * Math.sign(scrollAmount);
-      };
+      // if (Math.abs(scrollAmount) > graph.w) {
+      //   scrollAmount -= graph.w * Math.sign(scrollAmount);
+      // };
 
       //startPoint.x += scrollAmount;
 
@@ -118,7 +118,7 @@ export default function ImageGraph({ data }) {
       // };
 
       if (img) {
-        p5i.image(img, -30, 103);
+        p5i.image(img, startPoint.x, 103);
       }
       
 

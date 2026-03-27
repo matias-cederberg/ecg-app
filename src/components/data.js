@@ -94,30 +94,30 @@ export const ecgList = [
     points: [] }
   ]
 },
-{
-  name: 'R-On-T',
-  pages: [
-    { description: '[Ei kuvausta]', },
-    { heartRate: 60,
-    points: [] }
-  ]
-},
-{
-  name: 'Bigemenia',
-  pages: [
-    { description: '[Ei kuvausta]', },
-    { heartRate: 60,
-    points: [] }
-  ]
-},
-{
-  name: 'Trigemenia',
-  pages: [
-    { description: '[Ei kuvausta]', },
-    { heartRate: 60,
-    points: [] }
-  ]
-},
+// {
+//   name: 'R-On-T',
+//   pages: [
+//     { description: '[Ei kuvausta]', },
+//     { heartRate: 60,
+//     points: [] }
+//   ]
+// },
+// {
+//   name: 'Bigemenia',
+//   pages: [
+//     { description: '[Ei kuvausta]', },
+//     { heartRate: 60,
+//     points: [] }
+//   ]
+// },
+// {
+//   name: 'Trigemenia',
+//   pages: [
+//     { description: '[Ei kuvausta]', },
+//     { heartRate: 60,
+//     points: [] }
+//   ]
+// },
 {
   name: 'Flimmeri',
   pages: [
