@@ -32,15 +32,22 @@ export default function ImageGraph({ data }) {
 
   let img;
 
+  function handleImage(img) {
+
+  }
+
   const Sketch = p5i => {
 
-    p5i.preload = () => {
-      img = p5i.loadImage('/ecg-app/graphs/sinusrytmi.png');
-    };
+    // p5i.preload = () => {
+      //img = p5i.loadImage('/ecg-app/graphs/sinusrytmi.png');
+    //};
 
-    p5i.setup = () => {
+    p5i.setup = async () => {
 
-      
+      if (!img) img = await p5i.loadImage(data.image);
+
+      //p5i.preload();
+      //img = p5i.loadImage('/ecg-app/graphs/sinusrytmi.png');
       
       //if (data.points.length == 0) return;
 
@@ -96,21 +103,24 @@ export default function ImageGraph({ data }) {
       p5i.cursor('grab');
       if (p5i.mouseIsPressed) p5i.cursor('grabbing');
 
-      for (let iteration = 0; iteration < repeats; iteration++)
-      {
-        p5i.noFill();
-        p5i.strokeWeight(strokeWeight);
-        p5i.stroke(lineColor);
+      // for (let iteration = 0; iteration < repeats; iteration++)
+      // {
+      //   p5i.noFill();
+      //   p5i.strokeWeight(strokeWeight);
+      //   p5i.stroke(lineColor);
 
-        cursor.x = startPoint.x + iteration * graph.w;
-        cursor.y = startPoint.y;
+      //   cursor.x = startPoint.x + iteration * graph.w;
+      //   cursor.y = startPoint.y;
 
-        for (let i = 0; i < data.points.length; i++) {
-          drawCurvedLine(p5i, i, cursor, iteration);
-        };
-      };
+      //   for (let i = 0; i < data.points.length; i++) {
+      //     drawCurvedLine(p5i, i, cursor, iteration);
+      //   };
+      // };
 
-      p5i.image(img, 0, 0);
+      if (img) {
+        p5i.image(img, -30, 103);
+      }
+      
 
       drawDivider(p5i);
 

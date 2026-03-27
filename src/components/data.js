@@ -4,7 +4,7 @@ export const ecgList = [
   pages: [
     { description: 'EKG perustuu klassiseen elektrofysiologiaan, jonka kehitti Willem Einthoven 1924. \n\n Sydämen normaalia rytmiä kutsutaan sinusrytmiksi. Normaali sydämen rytmi käynnistyy sinussolmukkeessa, josta sähköinen aktivaatio leviää eteisiin. Eteisten aktivoituessa EKG:ssä nähdään eteisaktivaatioita kuvaava P-aalto. Sinussolmuke on sydämen varsinainen tahdistaja, ja se sijaitsee oikean eteisen yläosassa takaseinämässä yläonttolaskimon suun läheisyydessä. Kun sinussolmuke toimii normaalisti ja rytmi käynnistyy sieltä, puhutaan normaalirytmistä eli sinusrytmistä. Eteisten sähköistä aktivoitumista kutsutaan depolarisaatioksi, mikä käynnistää eteisten lihassolujen supistumisen. Tämän seurauksena molemmat eteiset supistuvat ja täyttävät kammiot ennen kammioiden supistumista.' },
     { heartRate: 76,
-      image: './sinusrytmi.png',
+      image: '/ecg-app/graphs/sinusrytmi.png',
       points: [
         // P
         { elevation: 0.00, amplitude: 0.07, duration: 0.13 },
@@ -29,6 +29,7 @@ export const ecgList = [
   pages: [
     { description: 'Sinusbradykardia on sinusrytmi, jossa syketaajuus on alle 60 lyöntiä minuutissa. Eteisaktivaatio tapahtuu kuten normaalissa sinusrytmissä. P-aalto on normaalin muotoinen, edeltää jokaista QRS-kompleksia ja PQ-aika on vähintään 120 ms. Sinusbradykardia on tavallista unen aikana sekä henkilöillä, joilla vagaalinen tonus on suuri, kuten urheilijoilla ja terveillä nuorilla aikuisilla.' },
     { heartRate: 42,
+      image: '/ecg-app/graphs/sinusbradykardia.png',
       points: [
         // P
         { elevation: 0.00, amplitude: 0.10, duration: 0.08 },
@@ -53,6 +54,7 @@ export const ecgList = [
   pages: [
     { description: 'Sinustakykardia on sinusrytmi, jossa syketiheys on yli 100 kertaa minuutissa. Eteisaktivaatio tapahtuu kuten sinusrytmissä ja P-aallot ovat normaalit, myös PP-välit ovat yleensä säännölliset. P-aaltoja seuraa QRS-kompleksi ja P-aaltojen morfologia on normaali.P-aallon korkeus voi myös kasvaa sekä PR-väli voi lyhentyä  syketiheyden kasvaessa. ', },
     { heartRate: 60,
+      image: '/ecg-app/graphs/sinustakykardia.png',
     points: [] }
   ]
 },
@@ -61,6 +63,7 @@ export const ecgList = [
   pages: [
     { description: '[Ei kuvausta]', },
     { heartRate: 60,
+      image: '/ecg-app/graphs/sinusPlusSves.png',
     points: [] }
   ]
 },
@@ -69,6 +72,7 @@ export const ecgList = [
   pages: [
     { description: '[Ei kuvausta]', },
     { heartRate: 60,
+      image: '/ecg-app/graphs/sinusPlusVes.png',
     points: [] }
   ]
 },
@@ -77,6 +81,7 @@ export const ecgList = [
   pages: [
     { description: '[Ei kuvausta]', },
     { heartRate: 60,
+      image: '/ecg-app/graphs/kupletti.png',
     points: [] }
   ]
 },
@@ -85,6 +90,7 @@ export const ecgList = [
   pages: [
     { description: '[Ei kuvausta]', },
     { heartRate: 60,
+      image: '/ecg-app/graphs/tripletti.png',
     points: [] }
   ]
 },
@@ -117,6 +123,7 @@ export const ecgList = [
   pages: [
     { description: '[Ei kuvausta]', },
     { heartRate: 60,
+      image: '/ecg-app/graphs/flimmeri.png',
     points: [] }
   ]
 },
@@ -125,6 +132,7 @@ export const ecgList = [
   pages: [
     { description: '[Ei kuvausta]', },
     { heartRate: 60,
+      image: '/ecg-app/graphs/flutteri.png',
     points: [] }
   ]
 },
@@ -133,6 +141,7 @@ export const ecgList = [
   pages: [
     { description: '[Ei kuvausta]', },
     { heartRate: 60,
+      image: '/ecg-app/graphs/svt.png',
     points: [] }
   ]
 },
@@ -141,6 +150,7 @@ export const ecgList = [
   pages: [
     { description: '[Ei kuvausta]', },
     { heartRate: 60,
+      image: '/ecg-app/graphs/vt.png',
     points: [] }
   ]
 },
@@ -149,6 +159,7 @@ export const ecgList = [
   pages: [
     { description: '[Ei kuvausta]', },
     { heartRate: 60,
+      image: '/ecg-app/graphs/vf.png',
     points: [] }
   ]
 },
@@ -157,6 +168,7 @@ export const ecgList = [
   pages: [
     { description: '[Ei kuvausta]', },
     { heartRate: 60,
+      image: '/ecg-app/graphs/tdp.png',
     points: [] }
   ]
 },
@@ -165,6 +177,7 @@ export const ecgList = [
   pages: [
     { description: '[Ei kuvausta]', },
     { heartRate: 60,
+      image: '/ecg-app/graphs/asy.png',
     points: [] }
   ]
 },
@@ -173,6 +186,7 @@ export const ecgList = [
   pages: [
     { description: '[Ei kuvausta]', },
     { heartRate: 60,
+      image: '/ecg-app/graphs/agonaalinen.png',
     points: [] }
   ]
 },
@@ -181,6 +195,7 @@ export const ecgList = [
   pages: [
     { description: '[Ei kuvausta]', },
     { heartRate: 60,
+      image: '/ecg-app/graphs/pea.png',
     points: [] }
   ]
 },
@@ -189,6 +204,7 @@ export const ecgList = [
   pages: [
     { description: '[Ei kuvausta]', },
     { heartRate: 60,
+      image: '/ecg-app/graphs/junktionaalinen.png',
     points: [] }
   ]
 },
@@ -197,6 +213,7 @@ export const ecgList = [
   pages: [
     { description: '[Ei kuvausta]', },
     { heartRate: 60,
+      image: '/ecg-app/graphs/eteistahdistus.png',
     points: [] }
   ]
 },
