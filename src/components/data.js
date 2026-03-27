@@ -222,6 +222,7 @@ export const ecgList = [
   pages: [
     { description: '[Ei kuvausta]', },
     { heartRate: 60,
+      image: '/ecg-app/graphs/kammiotahdistus.png',
     points: [] }
   ]
 },
@@ -230,6 +231,7 @@ export const ecgList = [
   pages: [
     { description: '[Ei kuvausta]', },
     { heartRate: 60,
+      image: '/ecg-app/graphs/eteiskammiotahdistus.png',
     points: [] }
   ]
 },
@@ -238,6 +240,7 @@ export const ecgList = [
   pages: [
     { description: '[Ei kuvausta]', },
     { heartRate: 60,
+      image: '/ecg-app/graphs/iAsteenAv.png',
     points: [] }
   ]
 },
@@ -246,6 +249,7 @@ export const ecgList = [
   pages: [
     { description: '[Ei kuvausta]', },
     { heartRate: 60,
+      image: '/ecg-app/graphs/iiAsteenAvMobitz1.png',
     points: [] }
   ]
 },
@@ -254,6 +258,7 @@ export const ecgList = [
   pages: [
     { description: '[Ei kuvausta]', },
     { heartRate: 60,
+      image: '/ecg-app/graphs/iiAsteenAvMobitz2.png',
     points: [] }
   ]
 },
@@ -262,6 +267,7 @@ export const ecgList = [
   pages: [
     { description: '[Ei kuvausta]', },
     { heartRate: 60,
+      image: '/ecg-app/graphs/iiiAsteenKatkos.png',
     points: [] }
   ]
 },
