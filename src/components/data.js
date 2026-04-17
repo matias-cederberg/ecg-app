@@ -271,44 +271,46 @@ export const ecgList = [
     points: [] }
   ]
 },
-{
-  name: 'RBBB',
-  pages: [
-    { description: '[Ei kuvausta]', },
-    { heartRate: 60,
-    points: [] }
-  ]
-},
-{
-  name: 'LBBB',
-  pages: [
-    { description: '[Ei kuvausta]', },
-    { heartRate: 60,
-    points: [] }
-  ]
-},
-{
-  name: 'Sinus + ST-tason nousu',
-  pages: [
-    { description: '[Ei kuvausta]', },
-    { heartRate: 60,
-    points: [] }
-  ]
-},
-{
-  name: 'Sinus + ST-tason lasku',
-  pages: [
-    { description: '[Ei kuvausta]', },
-    { heartRate: 60,
-    points: [] }
-  ]
-},
-{
-  name: 'T-inversio',
-  pages: [
-    { description: '[Ei kuvausta]', },
-    { heartRate: 60,
-    points: [] }
-  ]
-},
+
 ];
+
+// {
+//   name: 'RBBB',
+//   pages: [
+//     { description: '[Ei kuvausta]', },
+//     { heartRate: 60,
+//     points: [] }
+//   ]
+// },
+// {
+//   name: 'LBBB',
+//   pages: [
+//     { description: '[Ei kuvausta]', },
+//     { heartRate: 60,
+//     points: [] }
+//   ]
+// },
+// {
+//   name: 'Sinus + ST-tason nousu',
+//   pages: [
+//     { description: '[Ei kuvausta]', },
+//     { heartRate: 60,
+//     points: [] }
+//   ]
+// },
+// {
+//   name: 'Sinus + ST-tason lasku',
+//   pages: [
+//     { description: '[Ei kuvausta]', },
+//     { heartRate: 60,
+//     points: [] }
+//   ]
+// },
+// {
+//   name: 'T-inversio',
+//   pages: [
+//     { description: '[Ei kuvausta]', },
+//     { heartRate: 60,
+//     points: [] }
+//   ]
+// },
