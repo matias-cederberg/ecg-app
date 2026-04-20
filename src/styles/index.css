@@ -51,7 +51,7 @@ canvas {
   color: black;
   border: none;
   padding: 8px;
-  border-radius: 50vh;
+  border-radius: 1vh;
   text-align: center;
   text-decoration: none;
   cursor: pointer;

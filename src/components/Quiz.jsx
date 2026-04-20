@@ -71,8 +71,10 @@ export default function Quiz() {
     <>
       <div class="galleryDiv">
 
+        <div class="graphDiv">
+          <ImageGraph data={ecg.pages[1]} key={seed} client:only="react" />
+        </div>
         
-        <ImageGraph data={ecg.pages[1]} key={seed} client:only="react" />
         <p/>
 
         <p/>
@@ -96,7 +98,9 @@ export default function Quiz() {
         {ecgList[choices[2]].name}
       </button>
 
+      <p/>
       
+      {ecgIndex + 1} / {ecgList.length}
     </>
   );
 }
