@@ -14,6 +14,8 @@ export default function Gallery() {
   const hasNext = ecgIndex < ecgList.length - 1;
   const hasPrevious = ecgIndex > 0;
 
+  let ecg = ecgList[ecgIndex];
+
   function handleNextEcgClick() {
     resetGraph();
 
@@ -35,8 +37,8 @@ export default function Gallery() {
   function handleNextPageClick() {
     resetGraph();
 
-    if (pageIndex == 0) {
-      setPageIndex(1);
+    if (pageIndex < ecg.pages.length - 1) {
+      setPageIndex(pageIndex + 1);
     }
     else
     {
@@ -49,8 +51,6 @@ export default function Gallery() {
 
     setPageIndex(0);
   }
-
-  let ecg = ecgList[ecgIndex];
 
   return (
     <>

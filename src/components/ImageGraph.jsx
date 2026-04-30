@@ -88,7 +88,6 @@ export default function ImageGraph({ data }) {
       if (p5i.mouseIsPressed) p5i.cursor('grabbing');
 
       if (graphImage) {
-        
         p5i.image(graphImage, startPoint.x, startPoint.y, graphImage.width * canvasScaleRatio, graphImage.height * canvasScaleRatio);
       }
       
@@ -100,7 +99,7 @@ export default function ImageGraph({ data }) {
       p5i.textSize(18);
       p5i.fill(lineColor);
       
-      let s = `HR: ${Math.floor(canvasScaleRatio)}`;
+      let s = `HR: ${Math.floor(data.heartRate)}`;
       p5i.text(s, p5i.width / 2, p5i.height - 12, 200, 40);
     };
 
@@ -144,7 +143,9 @@ export default function ImageGraph({ data }) {
     animProgress += speed * p5i.deltaTime;
     if (animProgress > dividerEnd) animProgress = dividerStart;
     
-    p5i.image(dividerImage, animProgress, 0, dividerImage.width * canvasScaleRatio, dividerImage.height * canvasScaleRatio);
+    if (dividerImage) {
+      p5i.image(dividerImage, animProgress, 0, dividerImage.width * canvasScaleRatio, dividerImage.height * canvasScaleRatio);
+    }
   };
 
 
