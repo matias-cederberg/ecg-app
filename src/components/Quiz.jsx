@@ -71,8 +71,14 @@ export default function Quiz() {
     <>
       <div class="galleryDiv">
 
+        <a href="/ecg-app/" class="button">
+          <span class="material-symbols-rounded">chevron_backward</span> Aloitussivulle
+        </a>
+
+        <br/>
+
         <div class="graphDiv">
-          <ImageGraph data={ecg.pages[1]} key={seed} client:only="react" />
+          <ImageGraph data={ecg.pages[ecg.pages.length - 1]} key={seed} client:only="react" />
         </div>
         
         <p/>

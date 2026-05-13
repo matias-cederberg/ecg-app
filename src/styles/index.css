@@ -1,11 +1,11 @@
-html {background-color: rgb(214, 231, 222)}
+html {background-color: rgb(190, 203, 218)}
 
 .pageContainer {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  text-align: center;
+  text-align: left;
 
 
   font-family: "Lato", sans-serif;
@@ -13,6 +13,14 @@ html {background-color: rgb(214, 231, 222)}
   font-style: normal;
   width: 40%;
   margin:0px auto;
+}
+
+h1 {
+  text-align: center;
+}
+
+p {
+  font-size: 20px;
 }
 
 canvas {
@@ -29,7 +37,7 @@ canvas {
 }
 
 .galleryDiv {
-  background-color: rgb(240, 255, 249);
+  background-color: rgb(224, 242, 248);
   padding-top: 50px;
   padding-left: 50px;
   padding-right: 50px;
@@ -55,9 +63,9 @@ canvas {
   text-align: center;
   text-decoration: none;
   cursor: pointer;
-  filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.137));
+  filter: drop-shadow(0px 3px 0px rgba(0, 0, 0, 0.137));
 
-  font-size: 16px;
+  font-size: 18px;
 }
 
 .material-symbols-rounded {

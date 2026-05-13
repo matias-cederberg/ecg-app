@@ -55,6 +55,11 @@ export default function Gallery() {
   return (
     <>
       <div class="galleryDiv">
+
+        <a href="/ecg-app/" class="button">
+          <span class="material-symbols-rounded">chevron_backward</span> Aloitussivulle
+        </a>
+
         <h1>
           {ecg.name}
         </h1>
@@ -65,7 +70,7 @@ export default function Gallery() {
 
         <div class="horizontalContainer">
           <button onClick={handleNextPageClick} class="button">
-            <b>Seuraava</b> <span class="material-symbols-rounded">chevron_forward</span>
+            Seuraava <span class="material-symbols-rounded">chevron_forward</span>
           </button>
         </div>
 
