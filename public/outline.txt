@@ -1,0 +1,62 @@
+
+
+[alkudiat]
+
+1. sinusrytmi
+2. sinusbradykardia
+3. sinustakykardia
+
+[lisälyönnit]
+
+4. sinus + sves
+5. sinus + ves (unifokaalinen)
+6. sinus + ves (multifokaalinen)
+7. kupletti
+8. tripletti
+9. r-on-t
+10. bigemenia
+11. trigemenia
+
+[värinät]
+
+12. flimmeri
+13. flutteri
+14. svt
+15. vt
+16. vf
+17. tdp
+
+[henkeä uhkaavat]
+
+18. asy
+19. agonaalinen
+20. pea
+
+[korvausrytmit]
+
+21. junktionaalinen
+
+[tahdistinrytmit]
+
+22. eteistahdistus
+23. kammiotahdistus
+24. eteis-kammiotahdistus
+
+[eteis-kammiojohtumisen häiriöt]
+
+25. I-asteen av-katkos
+26. II-asteen av-katkos (mobitz 1)
+27. II-asteen av-katkos (mobitz 2)
+28. III-asteen av-katkos
+29. rbbb
+30. lbbb
+
+[st-tason muutokset]
+
+31. st-nousu
+32. st-lasku
+33. t-inversio
+
+[testi]
+
+

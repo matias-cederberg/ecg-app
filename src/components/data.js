@@ -6,22 +6,6 @@ export const ecgList = [
     { description: 'P-aallon kesto ilmoittaa ajan, mikä kuluu eteisten depolarisaatioon. Molempien eteisten depolarisoitumisen jälkeen, EKG-käyrä palaa perusviivalle. Eteisten jälkeen aktivoituu johtoratajärjestelmä: eteis-kammiosolmuke, Hisin kimppu, johtoradat sekä Purkinjen säikeet. Näiden synnyttämä sähkövirta ei näy kehon pinnalta rekisteröidyssä EKG:ssä, sillä niiden massa on hyvin pieni. QRS-kompleksi on seuraavana vuorossa joka syntyy kammioiden depolarisaatiosta. Kompleksia seuraa isoelektrinen ST-väli ja T-aalto, joka kuvaa kammioiden repolarisaatiota. Koko tätä sykliä kutsutaan sinusrytmiksi.'},
     { heartRate: 76,
       image: '/ecg-app/graphs/sinusrytmi.png',
-      points: [
-        // P
-        { elevation: 0.00, amplitude: 0.07, duration: 0.13 },
-        // P-Q
-        { elevation: 0.00, amplitude: 0.00, duration: 0.05 },
-        // Q
-        { elevation: -0.10, amplitude: 0.00, duration: 0.04 },
-        // R
-        { elevation: 0.90, amplitude: 0.00, duration: 0.03 },
-        // S
-        { elevation: 0.00, amplitude: 0.00, duration: 0.03 },
-        // S-T
-        { elevation: 0.00, amplitude: 0.00, duration: 0.15 },
-        // T
-        { elevation: 0.00, amplitude: 0.16, duration: 0.24 },
-      ]
     }
   ]
 },
@@ -31,22 +15,6 @@ export const ecgList = [
     { description: 'Sinusbradykardia on sinusrytmi, jossa syketaajuus on alle 60 lyöntiä minuutissa. Eteisaktivaatio tapahtuu kuten normaalissa sinusrytmissä. P-aalto on normaalin muotoinen, edeltää jokaista QRS-kompleksia ja PQ-aika on vähintään 120 ms. Sinusbradykardia on tavallista unen aikana sekä henkilöillä, joilla vagaalinen tonus on suuri, kuten urheilijoilla ja terveillä nuorilla aikuisilla.' },
     { heartRate: 42,
       image: '/ecg-app/graphs/sinusbradykardia.png',
-      points: [
-        // P
-        { elevation: 0.00, amplitude: 0.10, duration: 0.08 },
-        // P-Q
-        { elevation: 0.00, amplitude: 0.00, duration: 0.04 },
-        // Q
-        { elevation: -0.10, amplitude: 0.00, duration: 0.02 },
-        // R
-        { elevation: 0.90, amplitude: 0.00, duration: 0.015 },
-        // S
-        { elevation: 0.00, amplitude: 0.00, duration: 0.015 },
-        // S-T
-        { elevation: 0.00, amplitude: 0.00, duration: 0.08 },
-        // T
-        { elevation: 0.00, amplitude: 0.16, duration: 0.12 },
-      ]
     }
   ]
 },
@@ -74,7 +42,7 @@ export const ecgList = [
   pages: [
     { description: 'Kammiolisälyönneillä (VES) tarkoitetaan leveää QRS-kompleksia, joka on yli 120ms. On ennenaikainen, yleensä normaalia pidempikestoinen, muodoltaan terävä tai poikkeava ja jota ei edellä ennenaikainen P-aalto. Yhdenmuotoinen kammiolisälyönti eli unifokaalinen kammiolisälyönti tulee aina samasta paikasta kammiota. Monimuotoinen eli multifokaalinen, sekä ennenaikaisuudeltaan vaihteleva kammiolisälyöntisyys syntyy todennäköisesti useassa eri paikkaa sydämessä.', },
     { heartRate: 60,
-      image: '/ecg-app/graphs/sinusPlusVes.png',
+      image: '/ecg-app/graphs/sinusPlusVesUni.png',
     points: [] }
   ]
 },
