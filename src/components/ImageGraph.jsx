@@ -39,7 +39,7 @@ export default function ImageGraph({ data }) {
 
     p5i.setup = async () => {
 
-      if (!graphImage) graphImage = await p5i.loadImage(data.image);
+      if (!graphImage) graphImage = await p5i.loadImage(data.graph);
       if (!dividerImage) dividerImage = await p5i.loadImage(dividerImageFile);
 
       // canvas scaling calculations for different window sizes
