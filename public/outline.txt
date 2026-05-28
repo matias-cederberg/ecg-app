@@ -1,6 +1,6 @@
 
 
-[alkudiat]
+[ekg-osaaminen]
 
 1. sinusrytmi
 2. sinusbradykardia

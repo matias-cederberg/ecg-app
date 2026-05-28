@@ -8,6 +8,11 @@ export default function GalleryItem({ data }, graphSeed) {
       </div>
     );
   }
+  else if ("image" in data) {
+    return (
+      <img src={data.image}></img>
+    );
+  }
   else {
     return (
       <p>{data.description}</p>

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { ecgList } from './data.js';
+import { ecgList } from './quizData.js';
 import ImageGraph from './ImageGraph.jsx';
 
 
@@ -28,17 +28,12 @@ export default function Quiz() {
       let randomIndex = Math.floor(Math.random() * currentIndex);
       currentIndex--;
 
-      [array[currentIndex], array[randomIndex]] = [
-        array[randomIndex], array[currentIndex]];
+      [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
     }
   }
 
-
-
   function handleNextEcgClick() {
     resetGraph();
-
-    
 
     let target;
     target = hasNext ? ecgIndex + 1 : 0;
@@ -57,10 +52,6 @@ export default function Quiz() {
     setEcgIndex(target);
   }
 
-  
-
-  //if ecgIndex = 0
-
   useEffect(() => {
     shuffleArray(ecgList);
   }, []);
@@ -75,6 +66,7 @@ export default function Quiz() {
           <span class="material-symbols-rounded">chevron_backward</span> Aloitussivulle
         </a>
 
+        <br/>
         <br/>
 
         <div class="graphDiv">

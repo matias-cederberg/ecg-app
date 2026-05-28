@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ecgList } from './data.js';
+import { ecgList } from './galleryData.js';
 import GalleryItem from './GalleryItem.jsx';
 
 export default function Gallery() {
@@ -31,7 +31,7 @@ export default function Gallery() {
     let target;
     target = hasPrevious ? ecgIndex - 1 : ecgList.length - 1;
     setEcgIndex(target);
-    setPageIndex(0);
+    setPageIndex(ecgList[ecgIndex].pages.length);
   }
 
   function handleNextPageClick() {
@@ -49,7 +49,13 @@ export default function Gallery() {
   function handlePreviousPageClick() {
     resetGraph();
 
-    setPageIndex(0);
+    if (pageIndex > 0) {
+      setPageIndex(pageIndex - 1);
+    }
+    else
+    {
+      handlePreviousEcgClick();
+    }
   }
 
   return (
@@ -69,6 +75,9 @@ export default function Gallery() {
         <p/>
 
         <div class="horizontalContainer">
+          <button onClick={handlePreviousPageClick} class="button">
+            <span class="material-symbols-rounded">chevron_backward</span>
+          </button>
           <button onClick={handleNextPageClick} class="button">
             Seuraava <span class="material-symbols-rounded">chevron_forward</span>
           </button>
@@ -77,22 +86,23 @@ export default function Gallery() {
         <p/>
       </div>
 
-      <div class="horizontalContainer">
-        <button onClick={handlePreviousEcgClick} class="button">
-          <span class="material-symbols-rounded">chevron_backward</span>
-        </button>
-        <h3>
-          {ecgIndex + 1} / {ecgList.length}
-        </h3>
-        <button onClick={handleNextEcgClick} class="button">
-          <span class="material-symbols-rounded">chevron_forward</span>
-        </button>
-      </div>
-      {ecg.name}
+
     </>
   );
 }
 
+      // <div class="horizontalContainer">
+      //   <button onClick={handlePreviousEcgClick} class="button">
+      //     <span class="material-symbols-rounded">chevron_backward</span>
+      //   </button>
+      //   <h3>
+      //     {ecgIndex + 1} / {ecgList.length}
+      //   </h3>
+      //   <button onClick={handleNextEcgClick} class="button">
+      //     <span class="material-symbols-rounded">chevron_forward</span>
+      //   </button>
+      // </div>
+      // {ecg.name}
 
 // <button onClick={handleMoreClick}>
 //   {showMore ? 'Hide' : 'Show'} details
