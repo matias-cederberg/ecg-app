@@ -31,7 +31,7 @@ export default function Gallery() {
     let target;
     target = hasPrevious ? ecgIndex - 1 : ecgList.length - 1;
     setEcgIndex(target);
-    setPageIndex(ecgList[ecgIndex].pages.length);
+    setPageIndex(ecgList[ecgIndex - 1].pages.length - 1);
   }
 
   function handleNextPageClick() {
