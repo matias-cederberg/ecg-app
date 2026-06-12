@@ -6,7 +6,7 @@ html {background-color: rgb(190, 203, 218)}
   justify-content: center;
   flex-direction: column;
   text-align: left;
-
+  white-space: pre-wrap;
 
   font-family: "Lato", sans-serif;
   font-weight: 400;

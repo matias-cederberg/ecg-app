@@ -100,7 +100,7 @@ export default function ImageGraph({ data }) {
       p5i.fill(lineColor);
       
       let s = `HR: ${Math.floor(data.heartRate)}`;
-      //p5i.text(s, p5i.width / 2, p5i.height - 12, 200, 40);
+      p5i.text(s, p5i.width / 2, p5i.height - 12, 200, 40);
     };
 
 
